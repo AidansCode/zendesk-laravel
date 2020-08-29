@@ -8,10 +8,31 @@ The package simply provides a `Zendesk` class which acts as a wrapper to the [ze
 
 ## Installation
 
-You can install this package via Composer using:
+You can install this package via Composer by:
 
+- Register the repository in your composer.json
+
+```json
+"repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/AidansCode/zendesk-laravel"
+    }
+  ],
+  "require-all": true
+```
+
+- Add the package to your required list
+```json
+"require": {
+    "...": "...",
+    "AidansCode/zendesk-laravel": "master"
+  },
+```
+
+- Run:
 ```bash
-todo
+composer install
 ```
 
 You must also install the service provider.
