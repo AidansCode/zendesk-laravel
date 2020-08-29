@@ -11,12 +11,12 @@ class ZendeskService {
      *
      * @throws Exception
      */
-    public function __construct() {
-        $this->subdomain = config('zendesk-laravel.subdomain');
-        $this->username = config('zendesk-laravel.username');
-        $this->token = config('zendesk-laravel.token');
+    public function __construct($subdomain, $username, $token) {
+        $this->subdomain = $subdomain;
+        $this->username = $username;
+        $this->token = $token;
         if(!$this->subdomain || !$this->username || !$this->token) {
-            throw new InvalidArgumentException('Please set ZENDESK_SUBDOMAIN, ZENDESK_USERNAME and ZENDESK_TOKEN environment variables.');
+            throw new InvalidArgumentException('Please set subdomain, username, and token parameters');
         }
         $this->client = new HttpClient($this->subdomain, $this->username);
         $this->client->setAuth('basic', ['username' => $this->username, 'token' => $this->token]);
